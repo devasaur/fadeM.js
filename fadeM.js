@@ -31,6 +31,12 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  **/
 
+//fixes the flicker effect caused by the css elements being changed on document ready
+document.write('<style type="text/css">body{display:none}</style>');
+jQuery(function($) {
+$('body').css('display','block');
+});
+
 function startFadeM(fmx,fmy,fmz){
 
                     //check if the values are numbers
