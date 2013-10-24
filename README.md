@@ -3,6 +3,10 @@ fadeM.js
 
 A simple jQuery plugin that fades in any elements using a single class.
 
+fadeM.js works in current versions of Chrome, FF, and IE. 
+
+This script is currently under development to improve and add more features.
+
 
 To initiate:
 
