@@ -12,7 +12,7 @@ This script is currently under development to improve and add more features.
 To initiate:
 
 1. Reference jQuery and the fadeM.min.js file in your HTML document.
-2. 
+
 2. Add the class "fadeM" to any element you want to fade in. 
    Add the class "glideM" to any element you want to glide in. (Slides from left).
    Add the class "stickM" to any element you want to stick in place when it reaches the top (Use wisely!)
