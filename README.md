@@ -13,10 +13,10 @@ To initiate:
    -FadePoint: Exact number of pixels from top of page you want each element to fade in.
 
 
-<script>
+<pre><script>
 $(document).ready(function(){
 var FadeStrength = "3";
 var FadePoint = "500";
 startFadeM(FadeStrength,FadePoint);
 });
-</script>
+</script></pre>
