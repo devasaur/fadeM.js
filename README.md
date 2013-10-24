@@ -12,11 +12,10 @@ To initiate:
    -FadeStrength: Starting opacity ( 0 - 9 )
    -FadePoint: Exact number of pixels from top of page you want each element to fade in.
 
-
-<pre><script>
+<pre>
 $(document).ready(function(){
 var FadeStrength = "3";
 var FadePoint = "500";
 startFadeM(FadeStrength,FadePoint);
 });
-</script></pre>
+</pre>
