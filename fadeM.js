@@ -1,10 +1,13 @@
+/**
+ *
  * Version: 0.0.1
  * Author: Shawn Pavlas
  * Contact: shawnzabar@gmail.com
  * Website: http://www.devasaur.com/
  *
+ MIT license
  *
- * Copyright (c) 2013 Devasaur
+ * Copyright (c) 2013 Shawn Pavlas
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -48,8 +51,8 @@ function startFadeM(fmx,fmy){
 
 							
 
-					//Set defaults on all elements using fadeclass
-                   	var fadeSet = $(".fadeclass").toArray();
+					//Set defaults on all elements using fadeMe
+                   	var fadeSet = $(".fadeMe").toArray();
 							for (var i = 0; i < fadeSet.length; i++) {
 							
 							$(fadeSet[i]).css("transition","all 0.5s ease-in-out");
@@ -71,9 +74,9 @@ function startFadeM(fmx,fmy){
 			
 			
 			
-			                    //find all elements using the fadeclass attribute
+			                    //find all elements using the fadeMe attribute
 
-								var faderM = $(".fadeclass").toArray();
+								var faderM = $(".fadeMe").toArray();
 										for (var i = 0; i < faderM.length; i++) {
 										
 
