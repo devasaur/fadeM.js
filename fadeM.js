@@ -51,8 +51,8 @@ function startFadeM(fmx,fmy){
 
 							
 
-					//Set defaults on all elements using fadeMe
-                   	var fadeSet = $(".fadeMe").toArray();
+					//Set defaults on all elements using fadeclass
+                   	var fadeSet = $(".fadeclass").toArray();
 							for (var i = 0; i < fadeSet.length; i++) {
 							
 							$(fadeSet[i]).css("transition","all 0.5s ease-in-out");
@@ -64,7 +64,7 @@ function startFadeM(fmx,fmy){
 
 
 						//event responds to scrolling
-						window.onscroll = function(event){
+						$(window).scroll(function(){
 
 
 							//get the number of pixels scrolled from the top
@@ -74,9 +74,9 @@ function startFadeM(fmx,fmy){
 			
 			
 			
-			                    //find all elements using the fadeMe attribute
+			                    //find all elements using the fadeclass attribute
 
-								var faderM = $(".fadeMe").toArray();
+								var faderM = $(".fadeclass").toArray();
 										for (var i = 0; i < faderM.length; i++) {
 										
 
@@ -105,7 +105,7 @@ function startFadeM(fmx,fmy){
                     
    
 	
-						                              }
+						                              });
 	      
 		  
 		  
