@@ -31,13 +31,13 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  **/
 
-function startFadeM(fmx,fmy){
+function startFadeM(fmx,fmy,fmz){
 
                     //check if the values are numbers
 
 					
-							if (isNaN(fmx) || isNaN(fmy)) {
-							alert('The FadeM settings require numbers. Looks like you typed '+fmx+' and '+fmy+'. Oops!');
+							if (isNaN(fmx) || isNaN(fmy) || isNaN(fmz)) {
+							alert('The FadeM settings require numbers. Looks like you typed '+fmx+' and '+fmy+' and '+fmz+'. Oops!');
 							} 
 
 							
@@ -47,19 +47,41 @@ function startFadeM(fmx,fmy){
                     //convert the values to a number string
                     var x = parseInt(fmx);
                     var y = parseInt(fmy);
-					
+					var z = parseInt(fmz);
 
 							
 
-					//Set defaults on all elements using fadeclass
-                   	var fadeSet = $(".fadeclass").toArray();
+					//Set defaults on all elements using fadeM
+                   	var fadeSet = $(".fadeM").toArray();
 							for (var i = 0; i < fadeSet.length; i++) {
 							
-							$(fadeSet[i]).css("transition","all 0.5s ease-in-out");
+							$(fadeSet[i]).css("transition","all 0."+z+"s ease-in-out");
 							$(fadeSet[i]).css("opacity","0."+x);
 							$(fadeSet[i]).css("filter","aplha(opacity="+x+"0)");
 							
 							}
+							
+					//Set defaults on all elements using glideM
+                   	var glideSet = $(".glideM").toArray();
+							for (var i = 0; i < glideSet.length; i++) {
+							
+							$(glideSet[i]).css("transition","all 0."+z+"s ease-in-out");
+							$(glideSet[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
+
+							
+							}
+
+					//Set defaults on all elements using stickHere
+                   	var stickSet = $(".stickM").toArray();
+					var stickTop = [];
+							for (var i = 0; i < stickSet.length; i++) {	
+							
+							$(stickSet[i]).css("position","relative");  
+                            $(stickSet[i]).css("z-index","100000");  							
+                    //setting the default distance from top of page for each element
+							
+							stickTop.push($(stickSet[i]).offset().top);
+                                                                      }							
 
 
 
@@ -74,9 +96,9 @@ function startFadeM(fmx,fmy){
 			
 			
 			
-			                    //find all elements using the fadeclass attribute
+			                    //find all elements using the fadeM attribute
 
-								var faderM = $(".fadeclass").toArray();
+								var faderM = $(".fadeM").toArray();
 										for (var i = 0; i < faderM.length; i++) {
 										
 
@@ -102,6 +124,50 @@ function startFadeM(fmx,fmy){
 									   }
 								
 								}
+								
+								//find all elements using the glideM attribute
+
+								var gliderM = $(".glideM").toArray();
+										for (var i = 0; i < gliderM.length; i++) {
+										
+
+								
+								//get the offset for each element
+								
+								posG = $(gliderM[i]).offset().top - y;
+						
+												
+								 //set the element css when it reaches the set distance from top	
+								 
+								if(top > posG) {
+								
+								$(gliderM[i]).css("transform","translate(0px,0px)");
+
+								
+											  }
+								else {
+								
+								$(gliderM[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
+	
+									   }
+								
+								}
+								
+								//makes elements with stickHere stick to top
+								
+								
+										for (var i = 0; i < stickSet.length; i++) {
+										
+
+													if(top >= stickTop[i]){
+										
+													$(stickSet[i]).css("top", top-stickTop[i]+"px");
+											
+													}
+								
+										                                         }
+										
+
                     
    
 	
@@ -111,7 +177,7 @@ function startFadeM(fmx,fmy){
 		  
 		                   
 								
-								
+					
 
 							
 		  
