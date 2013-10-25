@@ -1,10 +1,11 @@
-Mtransit.js
+fadeM.js +
 ========
 
 A simple jQuery plugin that fades in any elements using a single class.
-(Now with a bonus glide transition and a stick effect!)
 
-fadeM.js works in current versions of Chrome, FF, and IE. 
+While it was originally created to fade in elements, we've added some other transition and scroll affects A La Mode: GlideM and StickM.
+
+fadeM.js works in current versions of Chrome & Firefox, and soon will be compatible with IE. 
 
 This script is currently under development to improve and add more features.
 
