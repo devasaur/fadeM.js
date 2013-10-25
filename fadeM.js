@@ -31,160 +31,212 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  **/
 
+//checks to see if CSS transitions are supported in the browser
+function cssTransitions() {
+ var style = document.documentElement.style;
+
+    if (
+        style.webkitTransition !== undefined ||
+        style.MozTransition !== undefined ||
+        style.OTransition !== undefined ||
+        style.MsTransition !== undefined ||
+        style.transition !== undefined
+    )
+    {
+      return false  // Support CSS3 transititon
+    } else {
+	 return true
+	 }
+}
+
+
 //fixes the flicker effect caused by the css elements being changed on document ready
 document.write('<style type="text/css">body{display:none}</style>');
 jQuery(function($) {
 $('body').css('display','block');
 });
 
+
+
 function startFadeM(fmx,fmy,fmz){
 
                     //check if the values are numbers
 
-					
-							if (isNaN(fmx) || isNaN(fmy) || isNaN(fmz)) {
-							alert('The FadeM settings require numbers. Looks like you typed '+fmx+' and '+fmy+' and '+fmz+'. Oops!');
-							} 
+                                        
+                                                        if (isNaN(fmx) || isNaN(fmy) || isNaN(fmz)) {
+                                                        alert('The FadeM settings require numbers. Looks like you typed '+fmx+' and '+fmy+' and '+fmz+'. Oops!');
+                                                        } 
 
-							
-					
-					
+                                                        
+                                        
+                                        
 
                     //convert the values to a number string
                     var x = parseInt(fmx);
                     var y = parseInt(fmy);
-					var z = parseInt(fmz);
+                    var z = parseInt(fmz);
+					var iex = "0."+x;
 
-							
+                                                        
 
-					//Set defaults on all elements using fadeM
-                   	var fadeSet = $(".fadeM").toArray();
-							for (var i = 0; i < fadeSet.length; i++) {
-							
-							$(fadeSet[i]).css("transition","all 0."+z+"s ease-in-out");
-							$(fadeSet[i]).css("opacity","0."+x);
-							$(fadeSet[i]).css("filter","aplha(opacity="+x+"0)");
-							
-							}
-							
-					//Set defaults on all elements using glideM
-                   	var glideSet = $(".glideM").toArray();
-							for (var i = 0; i < glideSet.length; i++) {
-							
-							$(glideSet[i]).css("transition","all 0."+z+"s ease-in-out");
-							$(glideSet[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
+                                        //Set defaults on all elements using fadeM
+                           var fadeSet = $(".fadeM").toArray();
+                                                        for (var i = 0; i < fadeSet.length; i++) {
+                                                        
+                                                        $(fadeSet[i]).css("transition","all 0."+z+"s ease-in-out");
+                                                        $(fadeSet[i]).css("opacity","0."+x);
+                                             
+                                                        
+                                                        }
+                                                        
+                                        //Set defaults on all elements using glideM
+                           var glideSet = $(".glideM").toArray();
+                                                        for (var i = 0; i < glideSet.length; i++) {
+                                                        
+                                                        $(glideSet[i]).css("transition","all 0."+z+"s ease-in-out");
+                                                        $(glideSet[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
 
-							
-							}
+                                                        
+                                                        }
 
-					//Set defaults on all elements using stickHere
-                   	var stickSet = $(".stickM").toArray();
-					var stickTop = [];
-							for (var i = 0; i < stickSet.length; i++) {	
-							
-							$(stickSet[i]).css("position","relative");  
-                            $(stickSet[i]).css("z-index","100000");  							
+                                        //Set defaults on all elements using stickHere
+                           var stickSet = $(".stickM").toArray();
+						   
+                                        var stickTop = [];
+                                                        for (var i = 0; i < stickSet.length; i++) {        
+                                                        
+                                                        $(stickSet[i]).css("position","relative");  
+                                                        $(stickSet[i]).css("z-index","100000");                                                          
                     //setting the default distance from top of page for each element
-							
-							stickTop.push($(stickSet[i]).offset().top);
-                                                                      }							
+                                                        
+                                                        stickTop.push($(stickSet[i]).offset().top);
+                                                                      }                                                        
 
 
 
-						//event responds to scrolling
-						$(window).scroll(function(){
+                                                //event responds to scrolling
+                                                $(window).scroll(function(){
 
 
-							//get the number of pixels scrolled from the top
-							var doc = document.documentElement, body = document.body;
-							var top = (doc && doc.scrollTop  || body && body.scrollTop  || 0);
-			
-			
-			
-			
-			                    //find all elements using the fadeM attribute
+                                                        //get the number of pixels scrolled from the top
+                                                        var doc = document.documentElement, body = document.body;
+                                                        var top = (doc && doc.scrollTop  || body && body.scrollTop  || 0);
+                        
+                        
+                        
+                        
+                                            //find all elements using the fadeM attribute
 
-								var faderM = $(".fadeM").toArray();
-										for (var i = 0; i < faderM.length; i++) {
-										
+                                                                var faderM = $(".fadeM").toArray();
+                                                                                for (var i = 0; i < faderM.length; i++) {
+                                                                                
 
-								
-								//get the offset for each element
-								
-								posF = $(faderM[i]).offset().top - y;
-						
-												
-								 //set the element css when it reaches the set distance from top	
-								 
-								if(top > posF) {
-								
-								$(faderM[i]).css("opacity","1.0");
-								$(faderM[i]).css("filter","aplha(opacity=100)");
-				
-								
-											  }
-								else {
-								
-								$(faderM[i]).css("opacity","0."+x);
-								$(faderM[i]).css("filter","aplha(opacity="+x+"0)");
-									   }
-								
-								}
-								
-								//find all elements using the glideM attribute
+                                                                
+                                                                //get the offset for each element
+                                                                
+                                                                posF = $(faderM[i]).offset().top - y;
+                                                
+                                                                                                
+                                                                 //set the element css when it reaches the set distance from top        
+                                                                 
+                                                                if(top > posF) {
+                                                                                                                              
+																		    
 
-								var gliderM = $(".glideM").toArray();
-										for (var i = 0; i < gliderM.length; i++) {
-										
+																				
+																			//checks if css transitions are supported and runs either transitions or fadeIn animation.	
+																				
+																				if ( !cssTransitions() == false) {
+																				
+																					$(faderM[i]).fadeTo(100,1.0);
+																					
+																				}	else if ( !cssTransitions() == true) {																		        
+																					                    
+																			    $(faderM[i]).css("opacity","1.0");
+																									
+                                                                                }
+                                                                               
+																						  
+																}
+                                                                else {
+ 
+																				
+																			//checks if css transitions are supported and runs either transitions or fadeOut animation.	
+																				
+																				if ( !cssTransitions() == false) {
+																				
+																					$(faderM[i]).fadeTo(100,iex);
+																					
+																				}	else if ( !cssTransitions() == true) {																				
+																			     
+																			    $(faderM[i]).css("opacity","0."+x);
+                                                                                
+																				}
+                                                                
+																}
+																}
+                                                                
+                                                                //find all elements using the glideM attribute
 
-								
-								//get the offset for each element
-								
-								posG = $(gliderM[i]).offset().top - y;
-						
-												
-								 //set the element css when it reaches the set distance from top	
-								 
-								if(top > posG) {
-								
-								$(gliderM[i]).css("transform","translate(0px,0px)");
+                                                                var gliderM = $(".glideM").toArray();
+                                                                                for (var i = 0; i < gliderM.length; i++) {
+                                                                                
 
-								
-											  }
-								else {
-								
-								$(gliderM[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
-	
-									   }
-								
-								}
-								
-								//makes elements with stickHere stick to top
-								
-								
-										for (var i = 0; i < stickSet.length; i++) {
-										
+                                                                
+                                                                //get the offset for each element
+                                                                
+                                                                posG = $(gliderM[i]).offset().top - y;
+                                                
+                                                                                                
+                                                                 //set the element css when it reaches the set distance from top        
+                                                                 
+                                                                if(top > posG) {
+                                                                
+                                                                $(gliderM[i]).css("transform","translate(0px,0px)");
 
-													if(top >= stickTop[i]){
-										
-													$(stickSet[i]).css("top", top-stickTop[i]+"px");
-											
-													}
-								
-										                                         }
-										
+                                                                
+                                                                                          }
+                                                                else {
+                                                                
+                                                                $(gliderM[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
+        
+                                                                           }
+                                                                
+                                                                }
+                                                                
+                                                                //makes elements with stickHere stick to top
+                                                                
+                                                                
+                                                                                for (var i = 0; i < stickSet.length; i++) {
+                                                                                
+
+                                                                                                        if(top >= stickTop[i]){
+                                                                                
+                                                                                                        $(stickSet[i]).css("position", "fixed");
+                                                                                                        $(stickSet[i]).css("top", "0px");
+                                                                                                        }
+                                                                
+																										else 
+																										
+																										{
+																										$(stickSet[i]).css("position", "relative");
+																									    $(stickSet[i]).css("top", stickTop[i].top+"px");
+																							
+																										
+                                                                                                                         }
+                                                                                
+																				                                              }
 
                     
    
-	
-						                              });
-	      
-		  
-		  
-		                   
-								
-					
+        
+                                                                              });
+              
+                  
+                  
+                                   
+                         
 
-							
-		  
+                                                        
+                  
                            }
