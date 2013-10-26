@@ -7,7 +7,7 @@ While it was originally created to fade in elements, we've added some other tran
 
 fadeM.js has been tested and works in current versions of Chrome & Firefox, and IE. NOTE: In IE, transition speed isn't working. This is a known issue. You can still specify start opacity however. 
 
-This script is currently under development to improve and add more features.
+This script is currently UNDER DEVELOPMENT to improve and add more features.
 
 
 To initiate:
@@ -31,3 +31,11 @@ var TransitSpeed = "3";
 startFadeM(FadeStrength,TransitPoint,TransitSpeed);
 });
 </pre>
+
+
+KNOWN ISSUES:
+
+1. Internet Explorer browser fade speed cannot be configured. It fades at a 100ms speed.
+2. The glide effect is not working in IE or Chrome. Chrome fix coming shortly.
+
+
