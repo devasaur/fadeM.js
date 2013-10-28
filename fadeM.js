@@ -122,7 +122,10 @@ function startFadeM(fmx,fmy,fmz){
                                                         var doc = document.documentElement, body = document.body;
                                                         var top = (doc && doc.scrollTop  || body && body.scrollTop  || 0);
                         
-                        
+                                                                
+																
+																
+
                         
                         
                                             //find all elements using the fadeM attribute
@@ -175,8 +178,10 @@ function startFadeM(fmx,fmy,fmz){
                                                                 
 																}
 																}
+																
+																
                                                                 
-                                                                //find all elements using the glideM attribute
+																//find all elements using the glideM attribute
 
                                                                 var gliderM = $(".glideM").toArray();
                                                                                 for (var i = 0; i < gliderM.length; i++) {
@@ -193,16 +198,19 @@ function startFadeM(fmx,fmy,fmz){
                                                                 if(top > posG) {
                                                                 
                                                                 $(gliderM[i]).css("transform","translate(0px,0px)");
-
+																$(gliderM[i]).css("-moz-transform","translate(0px,0px)");
+																$(gliderM[i]).css("-webkit-transform","translate(0px,0px)");	
                                                                 
                                                                                           }
                                                                 else {
                                                                 
                                                                 $(gliderM[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
-        
+        														$(gliderM[i]).css("-moz-transform","translate(-"+$(window).width()+"px,0px)");
+																$(gliderM[i]).css("-webkit-transform","translate(-"+$(window).width()+"px,0px)");
                                                                            }
                                                                 
                                                                 }
+																
                                                                 
                                                                 //makes elements with stickHere stick to top
                                                                 
