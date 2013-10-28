@@ -76,8 +76,10 @@ function startFadeM(fmx,fmy,fmz){
                     var y = parseInt(fmy);
                     var z = parseInt(fmz);
 					var iex = "0."+x;
-
-                                                        
+                            
+							//hide overflow caused by css transform settings.
+                            $("body").css("overflow-x","hidden");
+							
 
                                         //Set defaults on all elements using fadeM
                            var fadeSet = $(".fadeM").toArray();
@@ -93,11 +95,20 @@ function startFadeM(fmx,fmy,fmz){
                            var glideSet = $(".glideM").toArray();
                                                         for (var i = 0; i < glideSet.length; i++) {
                                                         
-                                                        $(glideSet[i]).css("transition","all 0."+z+"s ease-in-out");
+                                                        $(glideSet[i]).css("transition","all 0."+z+"s cubic-bezier(0.785, 0.135, 0.15, 0.86)");
                                                         $(glideSet[i]).css("transform","translate(-"+$(window).width()+"px,0px)");
 
                                                         
                                                         }
+														
+                                        //Set defaults on all elements using popM
+                           var popSet = $(".popM").toArray();
+                                                        for (var i = 0; i < popSet.length; i++) {
+                                                        
+                                                        $(popSet[i]).css("transition","all 0."+z+"s cubic-bezier(0.785, 0.135, 0.15, 0.86)");
+                                                        $(popSet[i]).css("transform","skew(90deg) scale(0.1)");                             
+                                              
+                                                        }														
 
                                         //Set defaults on all elements using stickHere
                            var stickSet = $(".stickM").toArray();
@@ -210,6 +221,38 @@ function startFadeM(fmx,fmy,fmz){
                                                                            }
                                                                 
                                                                 }
+																
+																
+																
+																//find all elements using the glideM attribute
+
+                                                                var poppeM = $(".popM").toArray();
+                                                                                for (var i = 0; i < poppeM.length; i++) {
+                                                                                
+
+                                                                
+                                                                //get the offset for each element
+                                                                
+                                                                posP = $(poppeM[i]).offset().top - y;
+                                                
+                                                                                                
+                                                                 //set the element css when it reaches the set distance from top        
+                                                                 
+                                                                if(top > posP) {
+                                                                
+                                                                $(poppeM[i]).css("transform","skew(0deg) scale(1.0)");
+																$(poppeM[i]).css("-moz-transform","skew(0deg) scale(1.0)");
+																$(poppeM[i]).css("-webkit-transform","skew(0deg) scale(1.0)");	
+                                                                
+                                                                                          }
+                                                                else {
+                                                                
+                                                                $(poppeM[i]).css("transform","skew(90deg) scale(0.1)");
+																$(poppeM[i]).css("-moz-transform","skew(90deg) scale(0.1)");
+																$(poppeM[i]).css("-webkit-transform","skew(90deg) scale(0.1)");	
+                                                                           }
+                                                                
+                                                                }																
 																
                                                                 
                                                                 //makes elements with stickHere stick to top
