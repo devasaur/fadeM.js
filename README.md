@@ -23,13 +23,13 @@ How To Use
 3. Use the following code to launch faderM from your page. You can change the values in quotes to change:
    -FadeStrength: Starting opacity for fadeM ( 0 - 9 )
    -TransitPoint: Exact number of pixels from top of page you want transitions to occur.
-   -TransitSpeed: 1-99; The speed at which the transition happens. (1=0.1s / 99 = 0.99s)
+   -TransitSpeed: 100-999; The speed at which the transition happens in milliseconds.
 
 <pre>
 $(document).ready(function(){
 var FadeStrength = "5";
 var TransitPoint = "500";
-var TransitSpeed = "3";
+var TransitSpeed = "300";
 startFadeM(FadeStrength,TransitPoint,TransitSpeed);
 });
 </pre>
