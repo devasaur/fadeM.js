@@ -39,6 +39,6 @@ Known Issues
 ========
 
 1. Internet Explorer 9 (and earlier) browser fade speed cannot be configured. It fades at a 100ms speed.
-2. The popM effect is buggy in Firefox when using the class on more than one object. This should be resolved soon.
+2. The popM effect is buggy in Firefox when applied to elements such as videos or slideshows.
 
 
