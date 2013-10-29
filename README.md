@@ -10,7 +10,8 @@ fadeM.js has been tested and works in current versions of Chrome & Firefox, and 
 This script is currently UNDER DEVELOPMENT to improve and add more features.
 
 
-To initiate:
+How To Use
+========
 
 1. Reference jQuery and the fadeM.min.js file in your HTML document.
 
@@ -34,8 +35,10 @@ startFadeM(FadeStrength,TransitPoint,TransitSpeed);
 </pre>
 
 
-KNOWN ISSUES:
+Known Issues
+========
 
 1. Internet Explorer 9 (and earlier) browser fade speed cannot be configured. It fades at a 100ms speed.
+2. The popM effect is buggy in Firefox when using the class on more than one object. This should be resolved soon.
 
 
