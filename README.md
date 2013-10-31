@@ -3,7 +3,7 @@ fadeM.js +
 
 A simple jQuery plugin that fades in any elements using a single class.
 
-While it was originally created to fade in elements, we've added some other transition and scroll affects A La Mode: GlideM and StickM.
+While it was originally created to fade in elements, we've added some other transition and scroll affects: GlideM PopM and StickM.
 
 fadeM.js has been tested and works in current versions of Chrome & Firefox, and IE 10. NOTE: In IE 9, transition speed isn't working. This is a known issue. You can still specify start opacity however. 
 
