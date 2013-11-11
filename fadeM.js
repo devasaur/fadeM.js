@@ -31,6 +31,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  **/
 
+
 //checks to see if CSS transitions are supported in the browser
 function cssTransitions() {
     var style = document.documentElement.style;
@@ -58,7 +59,7 @@ jQuery(function ($) {
 
 
 
-function startFadeM(fmx, fmy, fmz) {
+function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist) {
 
     //check if the values are numbers
 
@@ -74,7 +75,10 @@ function startFadeM(fmx, fmy, fmz) {
     var x = parseInt(fmx);
     var y = parseInt(fmy);
     var z = parseInt(fmz);
+	var sticktime = parseInt(stime);
+	var stickdistance = parseInt(sdist);
     var iex = "0." + x;
+
 
     //hide overflow caused by css transform settings.
     $("body").css("overflow-x", "hidden");
@@ -121,6 +125,8 @@ function startFadeM(fmx, fmy, fmz) {
 
         stickTop.push($(stickSet[i]).offset().top);
     }
+	
+
 
 
 
@@ -258,22 +264,55 @@ function startFadeM(fmx, fmy, fmz) {
 
 
         for (var i = 0; i < stickSet.length; i++) {
+		
+		
+		   if(tempstick == "on"){
 
 
-            if (top >= stickTop[i]) {
+				if (top >= stickTop[i]-stickdistance && top <= (stickTop[i]+sticktime-stickdistance)) {
 
-                $(stickSet[i]).css("position", "fixed");
-                $(stickSet[i]).css("top", "0px");
-            }
+					$(stickSet[i]).css("position", "fixed");
+					$(stickSet[i]).css("top", stickdistance+"px");
+				}
 
-            else
+				else if(top >= (stickTop[i]+sticktime-stickdistance))
 
-            {
-                $(stickSet[i]).css("position", "relative");
-                $(stickSet[i]).css("top", stickTop[i].top + "px");
+					   {
+					   
+						$(stickSet[i]).css("position", "relative");
+						$(stickSet[i]).css("top", top-top+sticktime + "px");
 
 
-            }
+					   }
+				
+				else
+				
+				       {
+					   
+						$(stickSet[i]).css("position", "relative");
+					    $(stickSet[i]).css("top", "0px");
+						
+				       }
+			} 
+			
+			else 
+			
+			{
+			    if (top >= (stickTop[i]-stickdistance)) {
+
+					$(stickSet[i]).css("position", "fixed");
+					$(stickSet[i]).css("top", stickdistance+"px");
+				}
+
+				else
+
+				{
+					$(stickSet[i]).css("position", "absolute");
+					$(stickSet[i]).css("top", "0px");
+
+
+				}
+			}
 
         }
 
