@@ -9,6 +9,15 @@ fadeM.js has been tested and works in current versions of Chrome & Firefox, and 
 
 This script is currently UNDER DEVELOPMENT to improve and add more features.
 
+Newest Features
+===============
+
+11/11/2013 - Added more control over the stickM feature. You can now specify how long you want an element to stick (for example,
+you can have a logo stick to the top of the page for 800 pixels, after which it will continue scrolling with the page).
+Also, you can control how far from the top of the page the element sticks (Default is zero).
+
+These new features have been tested in the latest versions of IE, FF, and Chrome and work smoothly. 
+
 
 How To Use
 ========
@@ -24,15 +33,29 @@ How To Use
    -FadeStrength: Starting opacity for fadeM ( 0 - 9 )
    -TransitPoint: Exact number of pixels from top of page you want transitions to occur.
    -TransitSpeed: 100-999; The speed at which the transition happens in milliseconds.
+   -ShortStick: Can be set "on" or "off". When turned on, this feature lets you have the element stick for a 
+                set distance in pixels instead of permantently sticking to the top.
+   -StickTime: The Duration in pixels for the stickM element to stay at the top. After the user has scrolled past this 
+               point, the element would continue to scroll out of view.
+   -StickDistance: This setting is for how many pixels from the top of the page you want the element to stay in place.
+                   It is defaulted to 0, but in cases where you want the element to stick before or after the top is reached, 
+                   you can set a positive or negative value.
 
 <pre>
 $(document).ready(function(){
-var FadeStrength = "5";
+var FadeStrength = "1";
 var TransitPoint = "500";
-var TransitSpeed = "300";
-startFadeM(FadeStrength,TransitPoint,TransitSpeed);
+var TransitSpeed = "3";
+var ShortStick = "off"
+var StickTime = "800";
+var StickDistance = "0";
+startFadeM(FadeStrength,TransitPoint,TransitSpeed,ShortStick,StickTime,StickDistance);
 });
 </pre>
+
+Notes: 
+
+- it is recommended to place the fadeM script at the top of the document in order for everything to load smoothly.
 
 
 Known Issues
