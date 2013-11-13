@@ -58,7 +58,7 @@ jQuery(function ($) {
 
 
 
-function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist, zoomss) {
+function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist, zoomss, glideDr) {
 
     //check if the values are numbers
 
@@ -96,10 +96,41 @@ function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist, zoomss) {
     //Set defaults on all elements using glideM
     var glideSet = $(".glideM").toArray();
     for (var i = 0; i < glideSet.length; i++) {
-
+    
         $(glideSet[i]).css("transition", "all 0." + z + "s cubic-bezier(0.785, 0.135, 0.15, 0.86)");
-        $(glideSet[i]).css("transform", "translate(-" + $(window).width() + "px,0px)");
-
+		
+		if(glideDr=="alt"){
+		
+			if(i % 2 == 0){
+			$(glideSet[i]).css("transform", "translate(" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-moz-transform", "translate(" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-webkit-transform", "translate(" + $(window).width() + "px,0px)");		
+			} else if(i % 2 == 1) {
+			$(glideSet[i]).css("transform", "translate(-" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-moz-transform", "translate(-" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-webkit-transform", "translate(-" + $(window).width() + "px,0px)");
+			
+			}
+			
+		}
+		
+		else if(glideDr=="left")
+		
+		{
+		    $(glideSet[i]).css("transform", "translate(" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-moz-transform", "translate(" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-webkit-transform", "translate(" + $(window).width() + "px,0px)");	
+		}
+		
+		else 
+		
+		{
+			$(glideSet[i]).css("transform", "translate(-" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-moz-transform", "translate(-" + $(window).width() + "px,0px)");
+			$(glideSet[i]).css("-webkit-transform", "translate(-" + $(window).width() + "px,0px)");
+		
+		}
+		
 
     }
 
@@ -229,10 +260,40 @@ function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist, zoomss) {
 
             }
             else {
+			
+				if(glideDr=="alt"){
 
-                $(gliderM[i]).css("transform", "translate(-" + $(window).width() + "px,0px)");
-                $(gliderM[i]).css("-moz-transform", "translate(-" + $(window).width() + "px,0px)");
-                $(gliderM[i]).css("-webkit-transform", "translate(-" + $(window).width() + "px,0px)");
+					if(i % 2 == 0){
+					$(gliderM[i]).css("transform", "translate(" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-moz-transform", "translate(" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-webkit-transform", "translate(" + $(window).width() + "px,0px)");		
+					} else if(i % 2 == 1) {
+					$(gliderM[i]).css("transform", "translate(-" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-moz-transform", "translate(-" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-webkit-transform", "translate(-" + $(window).width() + "px,0px)");
+					}
+					
+				}
+				
+				else if(glideDr=="left")
+				
+				{
+
+					$(gliderM[i]).css("transform", "translate(" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-moz-transform", "translate(" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-webkit-transform", "translate(" + $(window).width() + "px,0px)");				
+				
+				}
+				
+				else
+				
+				{
+				
+					$(gliderM[i]).css("transform", "translate(-" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-moz-transform", "translate(-" + $(window).width() + "px,0px)");
+					$(gliderM[i]).css("-webkit-transform", "translate(-" + $(window).width() + "px,0px)");
+				
+				}
             }
 
         }
