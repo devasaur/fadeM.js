@@ -31,7 +31,6 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  **/
 
-
 //checks to see if CSS transitions are supported in the browser
 function cssTransitions() {
     var style = document.documentElement.style;
@@ -59,7 +58,7 @@ jQuery(function ($) {
 
 
 
-function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist) {
+function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist, zoomss) {
 
     //check if the values are numbers
 
@@ -110,6 +109,17 @@ function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist) {
 
         $(popSet[i]).css("transition", "all 0." + z + "s cubic-bezier(0.785, 0.135, 0.15, 0.86)");
         $(popSet[i]).css("transform", "skew(90deg) scale(0.1)");
+
+    }
+	
+	//Set defaults on all elements using zooM
+    var zoomSet = $(".zooM").toArray();
+    for (var i = 0; i < zoomSet.length; i++) {
+
+        $(zoomSet[i]).css("transition", "all 0." + z + "s ease-in-out");
+        $(zoomSet[i]).css("transform", "scale("+zoomss+")");
+        $(zoomSet[i]).css("-moz-transform", "scale("+zoomss+")");
+        $(zoomSet[i]).css("-webkit-transform", "scale("+zoomss+")");
 
     }
 
@@ -255,6 +265,36 @@ function startFadeM(fmx, fmy, fmz, tempstick, stime, sdist) {
                 $(poppeM[i]).css("transform", "skew(90deg) scale(0.1)");
                 $(poppeM[i]).css("-moz-transform", "skew(90deg) scale(0.1)");
                 $(poppeM[i]).css("-webkit-transform", "skew(90deg) scale(0.1)");
+            }
+
+        }
+		
+        //find all elements using the zooM attribute
+
+        var zoomM = $(".zooM").toArray();
+        for (var i = 0; i < zoomM.length; i++) {
+
+
+
+            //get the offset for each element
+
+            posZ = $(zoomM[i]).offset().top - y;
+
+
+            //set the element css when it reaches the set distance from top        
+
+            if (top > posZ) {
+
+                $(zoomM[i]).css("transform", "scale(1.0)");
+                $(zoomM[i]).css("-moz-transform", "scale(1.0)");
+                $(zoomM[i]).css("-webkit-transform", "scale(1.0)");
+
+            }
+            else {
+
+                $(zoomM[i]).css("transform", "scale("+zoomss+")");
+                $(zoomSet[i]).css("-moz-transform", "scale("+zoomss+")");
+                $(zoomSet[i]).css("-webkit-transform", "scale("+zoomss+")");
             }
 
         }
