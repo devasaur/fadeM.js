@@ -29,6 +29,7 @@ These new features have been tested in the latest versions of IE, FF, and Chrome
 How To Use
 ========
 
+
 1. Reference jQuery and the fadeM.min.js file in your HTML document.
 
 2. Add the class "fadeM" to any element you want to fade in. 
@@ -37,7 +38,10 @@ How To Use
    Add the class "stickM" to any element you want to stick in place when it reaches the top (Use wisely!).
    Add the class "zooM" to any element that you want to zoom to its default size when scrolled into view. 
 
-3. Use the following code to launch faderM from your page. You can change the values in quotes to change:
+3. Use the following code to launch faderM from your page. You can change the values in quotes to change the settings:
+
+Here are the available settings:
+<pre>
    -FadeStrength: Starting opacity for fadeM ( 0 - 9 )
    -TransitPoint: Exact number of pixels from top of page you want transitions to occur.
    -TransitSpeed: 100-999; The speed at which the transition happens in milliseconds.
@@ -51,6 +55,9 @@ How To Use
    -ZoomStartSize: Set this to a decimal value where 0.0 is the smallest and 1.0 is default zoom.
    -GlideDirection: You can set glideM direction with this variable. Accepted values are "left" (glide in from right to left),
                     "right" (glide in from left to right), and "alt" (alternate between left and right direction on all glideM elements).
+</pre>
+
+To Initiate the script, run this code with your selected settings (see above):
 
 <pre>
 $(document).ready(function(){
