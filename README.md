@@ -12,7 +12,11 @@ This script is currently UNDER DEVELOPMENT to improve and add more features.
 Newest Features
 ===============
 
-11/13/2013 - Added a new transition class: zooM. This effect allows you to set a default zoom and have the element transition to its
+11/13/2013 
+
+-The glideM feature now can be controlled to glide from left/right or alternate between the two.
+
+- Added a new transition class: zooM. This effect allows you to set a default zoom and have the element transition to its
 original size when reaching the transition point. Try setting the Zoom starting point to 0.5 (50%) and it will enlarge to 100% size on scroll.
 
 11/11/2013 - Added more control over the stickM feature. You can now specify how long you want an element to stick (for example,
@@ -45,17 +49,20 @@ How To Use
                    It is defaulted to 0, but in cases where you want the element to stick before or after the top is reached, 
                    you can set a positive or negative value.
    -ZoomStartSize: Set this to a decimal value where 0.0 is the smallest and 1.0 is default zoom.
+   -GlideDirection: You can set glideM direction with this variable. Accepted values are "left" (glide in from right to left),
+                    "right" (glide in from left to right), and "alt" (alternate between left and right direction on all glideM elements).
 
 <pre>
 $(document).ready(function(){
 var TransitPoint = "500";
 var TransitSpeed = "2";
-var FadeStrength = "5";
-var ShortStick = "on";
-var StickTime = "800";
+var FadeStrength = "3";
+var ShortStick = "off";
+var StickTime = "500";
 var StickDistance = "0";
 var ZoomStartSize = "0.7";
-startFadeM(FadeStrength,TransitPoint,TransitSpeed,ShortStick,StickTime,StickDistance,ZoomStartSize);
+var GlideDirection = "alt";
+startFadeM(FadeStrength,TransitPoint,TransitSpeed,ShortStick,StickTime,StickDistance,ZoomStartSize,GlideDirection);
 });
 </pre>
 
