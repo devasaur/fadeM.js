@@ -27,7 +27,8 @@ How To Use
 2. Add the class "fadeM" to any element you want to fade in. 
    Add the class "glideM" to any element you want to glide in. (Slides from left).
    Add the class "popM" to any element for an effect similar to turning on an old TV screen.
-   Add the class "stickM" to any element you want to stick in place when it reaches the top (Use wisely!)
+   Add the class "stickM" to any element you want to stick in place when it reaches the top (Use wisely!).
+   Add the class "zooM" to any element that you want to zoom to its default size when scrolled into view. 
 
 3. Use the following code to launch faderM from your page. You can change the values in quotes to change:
    -FadeStrength: Starting opacity for fadeM ( 0 - 9 )
@@ -40,16 +41,18 @@ How To Use
    -StickDistance: This setting is for how many pixels from the top of the page you want the element to stay in place.
                    It is defaulted to 0, but in cases where you want the element to stick before or after the top is reached, 
                    you can set a positive or negative value.
+   -ZoomStartSize: Set this to a decimal value where 0.0 is the smallest and 1.0 is default zoom.
 
 <pre>
 $(document).ready(function(){
-var FadeStrength = "1";
 var TransitPoint = "500";
-var TransitSpeed = "3";
-var ShortStick = "off"
+var TransitSpeed = "2";
+var FadeStrength = "5";
+var ShortStick = "on";
 var StickTime = "800";
 var StickDistance = "0";
-startFadeM(FadeStrength,TransitPoint,TransitSpeed,ShortStick,StickTime,StickDistance);
+var ZoomStartSize = "0.7";
+startFadeM(FadeStrength,TransitPoint,TransitSpeed,ShortStick,StickTime,StickDistance,ZoomStartSize);
 });
 </pre>
 
