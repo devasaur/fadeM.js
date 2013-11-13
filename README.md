@@ -12,6 +12,9 @@ This script is currently UNDER DEVELOPMENT to improve and add more features.
 Newest Features
 ===============
 
+11/13/2013 - Added a new transition class: zooM. This effect allows you to set a default zoom and have the element transition to its
+original size when reaching the transition point. Try setting the Zoom starting point to 0.5 (50%) and it will enlarge to 100% size on scroll.
+
 11/11/2013 - Added more control over the stickM feature. You can now specify how long you want an element to stick (for example,
 you can have a logo stick to the top of the page for 800 pixels, after which it will continue scrolling with the page).
 Also, you can control how far from the top of the page the element sticks (Default is zero).
