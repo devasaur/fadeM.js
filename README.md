@@ -9,6 +9,11 @@ fadeM.js has been tested and works in current versions of Chrome & Firefox, and 
 
 This script is currently UNDER DEVELOPMENT to improve and add more features.
 
+Demo
+=======
+
+<a href="http://afteravalanche.com/fadeM/">http://afteravalanche.com/fadeM/</a>
+
 Newest Features
 ===============
 
